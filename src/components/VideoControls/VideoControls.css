@@ -1,0 +1,10 @@
+.controls {
+  display: flex;
+  border-bottom: 1px solid #242424;
+}
+.controls > * {
+  flex: 1;
+}
+.controls-bottom {
+  display: flex;
+}
