@@ -1,0 +1,26 @@
+#fileInput,
+#urlInput {
+  margin: 0px;
+  outline: none;
+}
+
+.file-input {
+  width: 100%;
+  align-self: stretch;
+}
+.file-input label {
+  margin-right: 20px;
+}
+
+.url-input-container {
+  display: flex;
+  margin: 20px 0px;
+}
+
+#urlInput {
+  flex: 1;
+  border: none;
+  padding-left: 10px;
+  border-radius: 4px;
+  margin-left: 20px;
+}

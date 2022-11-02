@@ -1,0 +1,12 @@
+@import "../styles/header.css";
+@import "../styles/react-player.css";
+@import "../styles/buttons.css";
+@import "../styles/video-data-section.css";
+@import "../styles/inputs.css";
+
+@media (min-width: 1024px) {
+  .App {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}

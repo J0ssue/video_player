@@ -4,7 +4,7 @@ import { OnProgressProps } from "react-player/base";
 
 export function useVideoControls(originalUrl?: string) {
   if (!originalUrl) {
-    originalUrl = "https://www.youtube.com/watch?v=MIrtpt1OafE";
+    originalUrl = "https://www.youtube.com/watch?v=X4YK-DEkvcw";
   }
   const [state, setState] = useState<ReactPlayerProps>({
     url: originalUrl,
@@ -22,7 +22,6 @@ export function useVideoControls(originalUrl?: string) {
 
   const handleLocalFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     try {
-      // Get the uploaded file
       if (!event.target.files || event.target.files.length === 0) {
         return;
       }

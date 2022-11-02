@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import { Container } from "../LayoutComponents";
 
 interface Props {
   min: number;
@@ -20,7 +21,7 @@ function InputControls({
   max,
 }: Props) {
   return (
-    <div className="button button--controls">
+    <Container className="button button--controls">
       <label htmlFor={`range-input-${text}`}>{text}</label>
       <input
         id={`range-input-${text}`}
@@ -33,7 +34,7 @@ function InputControls({
         onChange={onChange}
         onMouseUp={onMouseUp}
       />
-    </div>
+    </Container>
   );
 }
 export default InputControls;

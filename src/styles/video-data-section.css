@@ -1,0 +1,13 @@
+.video-data {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.video-data:nth-child(1),
+.video-data:nth-child(2) {
+  flex: 1;
+}
+.video-data div {
+  display: flex;
+}

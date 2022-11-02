@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import { BaseReactPlayerProps } from "react-player/base";
 import ButtonCotrols from "../ButtonControls";
 import InputControls from "../InputControls";
+import { Container } from "../LayoutComponents";
 import ProgressBar from "../ProgressBar";
 type noop = () => void;
 const playbackRateValues: Array<number | string> = [1, 1.5, 2];
@@ -39,7 +40,7 @@ function VideoControls(props: Props) {
 
   return (
     <>
-      <div className="controls">
+      <Container className="controls">
         <ButtonCotrols text="Stop" onClick={handleStop} />
         <ButtonCotrols
           text={state.playing ? "Pause" : "Play"}
@@ -54,8 +55,8 @@ function VideoControls(props: Props) {
             onClick={handleSetPlaybackRate}
           />
         ))}
-      </div>
-      <div className="controls-bottom">
+      </Container>
+      <Container className="controls-bottom">
         <InputControls
           text="Seek"
           min={0}
@@ -74,7 +75,7 @@ function VideoControls(props: Props) {
         />
         <ProgressBar text="Played" max={1} value={state.played} />
         <ProgressBar text="Loaded" max={1} value={state.loaded} />
-      </div>
+      </Container>
     </>
   );
 }

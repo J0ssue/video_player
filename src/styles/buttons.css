@@ -1,0 +1,35 @@
+.button,
+.button--controls {
+  border-radius: 8px;
+  border: 1px solid #242424;
+  padding: 0.6em 1.2em;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.button:hover {
+  border-color: #646cff;
+  transition: 0.2s ease-in-out;
+}
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+.button--controls {
+  border-radius: 41px;
+}
+.button--text {
+  border-radius: 41px;
+}
+.button--round-none {
+  border-radius: 0px;
+}
+.button--text:hover {
+  cursor: initial;
+  border-color: transparent;
+}

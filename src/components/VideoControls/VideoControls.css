@@ -1,10 +1,21 @@
 .controls {
+  flex: 1;
   display: flex;
+  flex-wrap: wrap;
   border-bottom: 1px solid #242424;
 }
-.controls > * {
-  flex: 1;
-}
+
 .controls-bottom {
+  flex: 1;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.controls > *,
+.controls-bottom > * {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
