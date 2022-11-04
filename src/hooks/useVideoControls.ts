@@ -8,6 +8,7 @@ export function useVideoControls(originalUrl?: string) {
   }
   const [state, setState] = useState<ReactPlayerProps>({
     url: originalUrl,
+    url2: originalUrl,
     playing: false,
     controls: false,
     light: false,
@@ -20,7 +21,10 @@ export function useVideoControls(originalUrl?: string) {
     loop: false,
   });
 
-  const handleLocalFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleLocalFileInputChange = (
+    event: ChangeEvent<HTMLInputElement>,
+    keyProp: string
+  ) => {
     try {
       if (!event.target.files || event.target.files.length === 0) {
         return;
@@ -30,7 +34,7 @@ export function useVideoControls(originalUrl?: string) {
 
       setState((s) => ({
         ...s,
-        url: URL.createObjectURL(new Blob([file]))
+        [keyProp]: URL.createObjectURL(new Blob([file]))
           ? URL.createObjectURL(new Blob([file]))
           : "",
       }));

@@ -42,38 +42,44 @@ function App() {
   };
 
   const DoubleVideoWindow = () =>
-    videosToDisplay.map((vid, index) => (
-      <Container className="player-wrapper" key={index.toString()}>
-        <ReactPlayer
-          ref={vid}
-          url={state.url}
-          className="react-player"
-          width="100%"
-          height="100%"
-          playing={state.playing}
-          pip
-          controls
-          light={state.light}
-          loop={state.loop}
-          playbackRate={state.playbackRate}
-          volume={state.volume}
-          muted={state.muted}
-          onPlay={() => handleSetState("playing", true)}
-          onPause={() => handleSetState("playing", false)}
-          onPlaybackRateChange={(value: string) =>
-            handleSetState("playbackRate", parseFloat(value))
-          }
-          onEnded={() => handleSetState("playing", false)}
-          onProgress={(value) => handleSetState("progress", value)}
-          onDuration={(val) => handleSetState("duration", val)}
-          config={{
-            youtube: {
-              playerVars: { origin: "http://localhost:5173" },
-            },
-          }}
-        />
-      </Container>
-    ));
+    videosToDisplay.map((vid, index) => {
+      const url = index === 0 ? state.url : state.url2;
+      return (
+        <Container className="player-wrapper" key={index.toString()}>
+          <ReactPlayer
+            ref={vid}
+            url={url}
+            className="react-player"
+            width="100%"
+            height="100%"
+            playing={state.playing}
+            pip
+            controls
+            light={state.light}
+            loop={state.loop}
+            playbackRate={state.playbackRate}
+            volume={state.volume}
+            muted={state.muted}
+            onPlay={() => handleSetState("playing", true)}
+            onPause={() => handleSetState("playing", false)}
+            onPlaybackRateChange={(value: string) =>
+              handleSetState("playbackRate", parseFloat(value))
+            }
+            onEnded={() => handleSetState("playing", false)}
+            onProgress={(value) => handleSetState("progress", value)}
+            onDuration={(val) => handleSetState("duration", val)}
+            config={{
+              youtube: {
+                playerVars: {
+                  origin: "http://localhost:5173",
+                  autoplay: false,
+                },
+              },
+            }}
+          />
+        </Container>
+      );
+    });
 
   return (
     <Container className="App">
@@ -83,12 +89,21 @@ function App() {
       </Header>
 
       <Main>
-        <SearchInput
-          state={state}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            handleSetState("url", e.target.value);
-          }}
-        />
+        <div className="search-inputs">
+          <SearchInput
+            state={state}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              handleSetState("url", e.target.value);
+            }}
+          />
+
+          <SearchInput
+            state={state}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              handleSetState("url2", e.target.value);
+            }}
+          />
+        </div>
 
         <Section className="player-container">{DoubleVideoWindow()}</Section>
 
@@ -114,8 +129,12 @@ function App() {
             }
           />
           <FileInput
-            labelText="Select local video file"
-            onChange={handleLocalFileInputChange}
+            labelText="Select local video file 1"
+            onChange={(e) => handleLocalFileInputChange(e, "url")}
+          />
+          <FileInput
+            labelText="Select local video file 2"
+            onChange={(e) => handleLocalFileInputChange(e, "url2")}
           />
         </Section>
       </Main>

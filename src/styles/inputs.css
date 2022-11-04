@@ -2,19 +2,16 @@
 #urlInput {
   margin: 0px;
   outline: none;
+  display: flex;
+  align-items: center;
 }
 
-.file-input {
-  width: 100%;
-  align-self: stretch;
-}
 .file-input label {
   margin-right: 20px;
 }
 
 .url-input-container {
   display: flex;
-  margin: 20px 0px;
 }
 
 #urlInput {
@@ -23,4 +20,11 @@
   padding-left: 10px;
   border-radius: 4px;
   margin-left: 20px;
+}
+
+.search-inputs {
+  display: flex;
+}
+.search-inputs > * {
+  flex: 1;
 }
